@@ -1,0 +1,40 @@
+.dashboard-header{
+    background: #111827;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    margin: 0 20px 30px 20px;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: -20px;
+    height: 100px;
+}
+
+.dashboard-title{
+    color:#ffffff;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 300px;
+}
+
+.dashboard-date{
+    color: #ffffff;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-left: 300px;
+}
+
+.new-report-btn{
+    background: #2563eb;
+    color: white;
+    border: none;
+    margin-right: 20px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}

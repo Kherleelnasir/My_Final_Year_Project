@@ -1,1 +1,148 @@
-<p>dashboard works!</p>
+<app-dashboard-layout>
+    <div class="stats-container">
+
+        <div class="stat-card">
+            <h2>247</h2>
+            <p>Active Cases</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>89</h2>
+            <p>Resolved Cases</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>34</h2>
+            <p>Pending Cases</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>18</h2>
+            <p>New Reports</p>
+        </div>
+
+    </div>
+
+<div class="chart-row">
+
+    <!-- Incidents Chart -->
+    <div class="chart-card">
+
+        <h3>Incidents This Week</h3>
+
+        <div class="chart-box">
+
+            <div class="bar mon"></div>
+            <div class="bar tue"></div>
+            <div class="bar wed"></div>
+            <div class="bar thu"></div>
+            <div class="bar fri"></div>
+            <div class="bar sat"></div>
+            <div class="bar sun"></div>
+
+        </div>
+
+        <div class="days">
+            <span>Mon</span>
+            <span>Tue</span>
+            <span>Wed</span>
+            <span>Thu</span>
+            <span>Fri</span>
+            <span>Sat</span>
+            <span>Sun</span>
+        </div>
+
+    </div>
+
+    <!-- Crime Categories -->
+    <div class="category-card">
+
+        <h3>Crime Categories</h3>
+
+        <div class="category">
+            <span>Theft/Burglary</span>
+            <div class="progress">
+                <div class="progress-fill" style="width:94%;"></div>
+            </div>
+        </div>
+
+        <div class="category">
+            <span>Assault</span>
+            <div class="progress">
+                <div class="progress-fill" style="width:61%;"></div>
+            </div>
+        </div>
+
+        <div class="category">
+            <span>Vehicle Crime</span>
+            <div class="progress">
+                <div class="progress-fill" style="width:49%;"></div>
+            </div>
+        </div>
+
+        <div class="category">
+            <span>Vandalism</span>
+            <div class="progress">
+                <div class="progress-fill" style="width:29%;"></div>
+            </div>
+        </div>
+
+        <div class="category">
+            <span>Other</span>
+            <div class="progress">
+                <div class="progress-fill" style="width:14%;"></div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+    <div class="recent-incidents">
+
+        <h3>Recent Incidents</h3>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Case ID</th>
+                    <th>Crime Type</th>
+                    <th>Location</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>CR-001</td>
+                    <td>Theft</td>
+                    <td>Dutse</td>
+                    <td>30 Jun 2026</td>
+                    <td><span class="status active">Active</span></td>
+                </tr>
+
+                <tr>
+                    <td>CR-002</td>
+                    <td>Assault</td>
+                    <td>Kano</td>
+                    <td>29 Jun 2026</td>
+                    <td><span class="status pending">Pending</span></td>
+                </tr>
+
+                <tr>
+                    <td>CR-003</td>
+                    <td>Vehicle Theft</td>
+                    <td>Abuja</td>
+                    <td>28 Jun 2026</td>
+                    <td><span class="status solved">Resolved</span></td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+</app-dashboard-layout>
