@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HeaderService } from '../../services/header.service';
 
 @Component({
   selector: 'app-header',
@@ -6,4 +7,12 @@ import { Component } from '@angular/core';
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
-export class Header {}
+export class Header {
+  title = 'Operations Dashboard';
+  subtitle = '';
+
+  constructor(private headerService: HeaderService) {
+    this.headerService.title$.subscribe((t) => (this.title = t));
+    this.headerService.subtitle$.subscribe((s) => (this.subtitle = s));
+  }
+}

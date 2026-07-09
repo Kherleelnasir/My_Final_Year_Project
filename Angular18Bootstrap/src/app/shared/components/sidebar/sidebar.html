@@ -12,11 +12,11 @@
 
     <nav class="menu">
 
-        <a href="#" class="active">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
             Dashboard
         </a>
 
-        <a href="#">
+        <a routerLink="/incident-reports" routerLinkActive="active">
             Incident Reports
         </a>
 

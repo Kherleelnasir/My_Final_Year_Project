@@ -1,0 +1,94 @@
+<app-dashboard-layout>
+
+    <div class="incident-page">
+
+        <div class="filter-section">
+
+            <!-- Search Box -->
+            <input
+                type="text"
+                placeholder="Search case ID, type, location..."
+                class="search-input">
+
+            <!-- Status -->
+            <select class="filter-select">
+                <option>Status: All</option>
+                <option>Active</option>
+                <option>Pending</option>
+                <option>Resolved</option>
+                <option>Under Investigation</option>
+            </select>
+
+            <!-- Severity -->
+            <select class="filter-select">
+                <option>Severity: All</option>
+                <option>Critical</option>
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+            </select>
+
+        </div>
+        <div class="table-container">
+
+            <table class="incident-table">
+
+                <thead>
+
+                    <tr>
+                        <th>CASE ID</th>
+                        <th>TYPE</th>
+                        <th>LOCATION</th>
+                        <th>DATE/TIME</th>
+                        <th>OFFICER</th>
+                        <th>SEVERITY</th>
+                        <th>STATUS</th>
+                        <th></th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>CR-2024-0891</td>
+                        <td>Burglary</td>
+                        <td>1402 Oak Ave, District 3</td>
+                        <td>2026-06-15 09:14</td>
+                        <td>Chen, M.</td>
+                        <td><span class="severity high">● High</span></td>
+                        <td><span class="status active">Active</span></td>
+                        <td>👁</td>
+                    </tr>
+
+                    <tr>
+                        <td>CR-2024-0890</td>
+                        <td>Vehicle Theft</td>
+                        <td>Parking Lot B</td>
+                        <td>2026-06-15 08:02</td>
+                        <td>Torres, R.</td>
+                        <td><span class="severity medium">● Medium</span></td>
+                        <td><span class="status investigation">Under Investigation</span></td>
+                        <td>👁</td>
+                    </tr>
+
+                    <tr>
+                        <td>CR-2024-0889</td>
+                        <td>Assault</td>
+                        <td>700 Block, Main St</td>
+                        <td>2026-06-15 06:30</td>
+                        <td>Williams, D.</td>
+                        <td><span class="severity critical">● Critical</span></td>
+                        <td><span class="status active">Active</span></td>
+                        <td>👁</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</app-dashboard-layout>
