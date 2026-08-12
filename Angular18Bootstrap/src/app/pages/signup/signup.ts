@@ -15,9 +15,16 @@ export class Signup {
   private readonly firebaseService = inject(FirebaseService);
   private readonly router = inject(Router);
 
-  public fullName = '';
+  public firstName = '';
+  public lastName = '';
   public email = '';
   public phone = '';
+  public gender = '';
+  public dateOfBirth = '';
+  public state = '';
+  public lga = '';
+  public address = '';
+  public terms = false;
   public password = '';
   public confirmPassword = '';
   public errorMessage = '';

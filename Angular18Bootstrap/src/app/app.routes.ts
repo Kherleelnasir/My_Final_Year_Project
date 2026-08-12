@@ -17,6 +17,12 @@ export const routes: Routes = [
     path: 'dashboard',
     component: Dashboard
   },
+
+  {
+    path: 'web',
+    component: Dashboard
+  },
+  
   {
     path: 'home',
     component: Home

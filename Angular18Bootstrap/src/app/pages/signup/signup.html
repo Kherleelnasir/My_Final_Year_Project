@@ -1,35 +1,236 @@
 <div class="signup-container">
-  <h1>Create Account</h1>
-  <p class="description">Fill in the details below to create your account.</p>
+  <div class="signup-header">
+    <h1>Create Account</h1>
+    <p class="description">
+      Fill in the details below to create your account.
+    </p>
+  </div>
 
   <form novalidate>
-    <label for="fullname">Full Name:</label> <br>
-    <input type="text" id="fullname" name="fullname" [(ngModel)]="fullName" placeholder="Enter your full name" required> <br>
+    <div class="form-grid">
 
-    <label for="email">Email:</label> <br>
-    <input type="email" id="email" name="email" [(ngModel)]="email" placeholder="Enter your email" required> <br>
-
-    <label for="phone">Phone Number:</label> <br>
-    <input type="text" id="phone" name="phone" [(ngModel)]="phone" placeholder="Enter your phone number" required> <br>
-
-    <label for="password">Password:</label> <br>
-    <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Enter your password" required> <br>
-
-    <label for="confirm-password">Confirm Password:</label> <br>
-    <input type="password" id="confirm-password" name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="Confirm your password" required> <br>
-
-    <div class="terms">
-      <label for="terms">
-        <input type="checkbox" id="terms" name="terms" required> I agree to the <span>Terms and Conditions</span>
-      </label>
+    <!-- First Name -->
+    <div class="form-group">
+      <label for="firstName">First Name <span>*</span></label>
+      <input
+        type="text"
+        id="firstName"
+        name="firstName"
+        [(ngModel)]="firstName"
+        placeholder="Enter your first name"
+        required>
     </div>
 
-    <p *ngIf="errorMessage" style="color: red; margin-top: 10px;">{{ errorMessage }}</p>
-
-    <button class="submit" type="button" (click)="signUp()">Create Account</button>
-
-    <div class="signup">
-      <p>Already have an account <a class="forgot-password" [routerLink]="['/login']">Sign In</a></p>
+    <!-- Last Name -->
+    <div class="form-group">
+      <label for="lastName">Last Name <span>*</span></label>
+      <input
+        type="text"
+        id="lastName"
+        name="lastName"
+        [(ngModel)]="lastName"
+        placeholder="Enter your last name"
+        required>
     </div>
+
+  <!-- Email -->
+  <div class="form-group">
+    <label for="email">Email Address <span>*</span></label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      [(ngModel)]="email"
+      placeholder="Enter your email"
+      required>
+  </div>
+
+  <!-- Phone -->
+  <div class="form-group">
+    <label for="phone">Phone Number <span>*</span></label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      [(ngModel)]="phone"
+      placeholder="Enter your phone number"
+      required>
+  </div>
+
+  <!-- Gender -->
+  <div class="form-group">
+    <label for="gender">Gender <span>*</span></label>
+    <select
+      id="gender"
+      name="gender"
+      [(ngModel)]="gender"
+      required>
+      <option value="" disabled selected>Select gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+  </div>
+
+  <!-- Date of Birth -->
+  <div class="form-group">
+    <label for="dateOfBirth">Date of Birth</label>
+    <input
+      type="date"
+      id="dateOfBirth"
+      name="dateOfBirth"
+      [(ngModel)]="dateOfBirth">
+  </div>
+
+  <!-- State -->
+  <div class="form-group">
+    <label for="state">State <span>*</span></label>
+    <select
+      id="state"
+      name="state"
+      [(ngModel)]="state"
+      required>
+      <option value="" disabled selected>Select state</option>
+      <option value="Abia">Abia</option>
+      <option value="Adamawa">Adamawa</option>
+      <option value="Akwa Ibom">Akwa Ibom</option>
+      <option value="Anambra">Anambra</option>
+      <option value="Bauchi">Bauchi</option>
+      <option value="Bayelsa">Bayelsa</option>
+      <option value="Benue">Benue</option>
+      <option value="Borno">Borno</option>
+      <option value="Cross River">Cross River</option>
+      <option value="Delta">Delta</option>
+      <option value="Ebonyi">Ebonyi</option>
+      <option value="Edo">Edo</option>
+      <option value="Ekiti">Ekiti</option>
+      <option value="Enugu">Enugu</option>
+      <option value="Gombe">Gombe</option>
+      <option value="Imo">Imo</option>
+      <option value="Jigawa">Jigawa</option>
+      <option value="Kaduna">Kaduna</option>
+      <option value="Kano">Kano</option>
+      <option value="Katsina">Katsina</option>
+      <option value="Kebbi">Kebbi</option>
+      <option value="Kogi">Kogi</option>
+      <option value="Kwara">Kwara</option>
+      <option value="Lagos">Lagos</option>
+      <option value="Nasarawa">Nasarawa</option>
+      <option value="Niger">Niger</option>
+      <option value="Ogun">Ogun</option>
+      <option value="Ondo">Ondo</option>
+      <option value="Osun">Osun</option>
+      <option value="Oyo">Oyo</option>
+      <option value="Plateau">Plateau</option>
+      <option value="Rivers">Rivers</option>
+      <option value="Sokoto">Sokoto</option>
+      <option value="Taraba">Taraba</option>
+      <option value="Yobe">Yobe</option>
+      <option value="Zamfara">Zamfara</option>
+      <option value="FCT">Federal Capital Territory</option>
+    </select>
+  </div>
+
+  <!-- LGA -->
+  <div class="form-group">
+    <label for="lga">Local Government Area <span>*</span></label>
+    <input
+      type="text"
+      id="lga"
+      name="lga"
+      [(ngModel)]="lga"
+      placeholder="Enter your LGA"
+      required>
+  </div>
+
+  <!-- Residential Address -->
+  <div class="form-group full-width">
+    <label for="address">Residential Address <span>*</span></label>
+    <textarea
+      id="address"
+      name="address"
+      [(ngModel)]="address"
+      placeholder="Enter your residential address"
+      rows="3"
+      required></textarea>
+  </div>
+
+  <!-- Password -->
+  <div class="form-group">
+    <label for="password">Password <span>*</span></label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      [(ngModel)]="password"
+      placeholder="Create a password"
+      required>
+  </div>
+
+  <!-- Confirm Password -->
+  <div class="form-group">
+    <label for="confirm-password">Confirm Password <span>*</span></label>
+    <input
+      type="password"
+      id="confirm-password"
+      name="confirmPassword"
+      [(ngModel)]="confirmPassword"
+      placeholder="Confirm your password"
+      required>
+  </div>
+
+</div>
+
+<!-- Terms -->
+<div class="terms">
+  <label for="terms">
+    <input
+      type="checkbox"
+      id="terms"
+      name="terms"
+      required>
+
+    <span class="check-text">
+      I agree to the
+      <a href="#">Terms and Conditions</a>
+      and
+      <a href="#">Privacy Policy</a>
+    </span>
+  </label>
+</div>
+
+<!-- Error Message -->
+<p
+  *ngIf="errorMessage"
+  class="error-message">
+  {{ errorMessage }}
+</p>
+
+<!-- Submit -->
+<button
+  class="submit"
+  type="button"
+  (click)="signUp()">
+  Create Account
+</button>
+
+<!-- Divider -->
+<div class="divider">
+  <span>OR</span>
+</div>
+
+
+<!-- Login -->
+<div class="signup">
+  <p>
+    Already have an account?
+    <a
+      class="forgot-password"
+      [routerLink]="['/login']">
+      Sign In
+    </a>
+  </p>
+</div>
+
+
   </form>
 </div>
