@@ -1,4 +1,6 @@
+html,
 body {
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     background: #0d1117;
@@ -11,7 +13,7 @@ header {
 }
 
 .layout-container {
-    background:#0d1117;
+    background: #0d1117;
     display: flex;
     gap: 20px;
     padding: 20px;

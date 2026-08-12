@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body,
+app-root,
+app-dashboard-layout,
+main {
+    min-height: 100vh;
+    background: #0d1117;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}

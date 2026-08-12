@@ -1,0 +1,89 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #0d1117;
+}
+
+.signup-container {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: min(90vw, 400px);
+    min-height: 350px;
+    padding: 24px 20px;
+    border-radius: 15px;
+    box-shadow: 0.1px 0.1px 10px #282bdf1a;
+}
+
+h1{
+    margin-bottom: 3px;
+}
+
+.description {
+    font-size: 13px;
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
+
+#fullname, #email, #phone, #password, #confirm-password {
+    width: 270px;
+    padding: 7px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.remember{
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.forgot-password {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.terms {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+span {
+    color:  #007bff;
+}
+
+.submit {
+    width: 270px;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: #007bff;
+    width: 275px;
+
+}
+
+.signup {
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: center;
+}

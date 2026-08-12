@@ -1,0 +1,42 @@
+<div class="login-container">
+  <h1>Login</h1>
+  <p class="description">Sign in to continue your account</p>
+
+  <form novalidate>
+    <label for="email">Email:</label> <br>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      [(ngModel)]="email"
+      placeholder="Enter your email"
+      required
+    > <br>
+
+    <label for="password">Password:</label> <br>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      [(ngModel)]="password"
+      placeholder="Enter your password"
+      required
+    > <br>
+
+    <div class="remember">
+      <label for="remember">
+        <input type="checkbox" id="remember" name="remember"> Remember me
+      </label>
+      <a class="forgot-password" href="#forgot-password">Forgot Password?</a>
+    </div>
+
+    <p *ngIf="errorMessage" style="color: red; margin-top: 10px;">{{ errorMessage }}</p>
+
+    <button class="submit" type="button" (click)="login()">Login</button>
+
+    <div class="signup">
+      <p>or</p>
+      <p>Don't have an account? <a class="forgot-password" [routerLink]="['/signup']">Sign Up</a></p>
+    </div>
+  </form>
+</div>

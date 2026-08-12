@@ -5,7 +5,15 @@
         <p class="dashboard-date">{{ subtitle }}</p>
     </div>
 
-    <button class="new-report-btn">
+    <div *ngIf="showReportActions" class="report-actions">
+        <button type="button" class="header-action-btn" (click)="printReport()">
+            Print
+        </button>
+        <button type="button" class="header-action-btn" (click)="exportPdf()">
+            Export PDF
+        </button>
+    </div>
+    <button class="new-report-btn" routerLink="/new-report">
         + New Report
     </button>
 

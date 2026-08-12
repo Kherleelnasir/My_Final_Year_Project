@@ -1,0 +1,51 @@
+<header class="navbar">
+    <div class="logo">
+        <h2>Crime<span>Report</span></h2>
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="nav-buttons">
+        <button class="login-btn" type="button" [routerLink]="['/login']">Login</button>
+        <button class="signup-btn" type="button" [routerLink]="['/signup']">Sign Up</button>
+    </div>
+
+</header>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            Secure • Anonymous • Trusted
+        </span>
+
+        <h1>
+            Report Crime <br>
+            Safely & Securely
+        </h1>
+
+        <p>
+            Help keep your community safe by reporting incidents
+            anonymously. Submit reports, upload evidence,
+            and track the progress of your case anytime.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="login-btn" type="button" [routerLink]="['/login']">
+                Login to Report Crime
+            
+            </button>
+
+            <button class="signup-btn" type="button" [routerLink]="['/signup']">
+                Sign Up
+            </button>
+        </div>
+    </div>
+</section>

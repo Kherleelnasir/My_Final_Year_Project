@@ -30,12 +30,28 @@
     margin-left: 250px;
 }
 
+.report-actions {
+    display: flex;
+    gap: 4px;
+    margin-right: 0;
+}
+
+.header-action-btn,
 .new-report-btn{
     background: #2563eb;
     color: white;
     border: none;
-    margin-right: 20px;
-    padding: 10px 20px;
+    padding: 10px 16px;
     border-radius: 8px;
     cursor: pointer;
+}
+
+.header-action-btn {
+    background: #1d4ed8;
+    margin-right: -230px;
+    margin-left: 247px;
+}
+
+.new-report-btn {
+    margin-left: 0;
 }

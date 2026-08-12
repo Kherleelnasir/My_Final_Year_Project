@@ -1,0 +1,35 @@
+<div class="signup-container">
+  <h1>Create Account</h1>
+  <p class="description">Fill in the details below to create your account.</p>
+
+  <form novalidate>
+    <label for="fullname">Full Name:</label> <br>
+    <input type="text" id="fullname" name="fullname" [(ngModel)]="fullName" placeholder="Enter your full name" required> <br>
+
+    <label for="email">Email:</label> <br>
+    <input type="email" id="email" name="email" [(ngModel)]="email" placeholder="Enter your email" required> <br>
+
+    <label for="phone">Phone Number:</label> <br>
+    <input type="text" id="phone" name="phone" [(ngModel)]="phone" placeholder="Enter your phone number" required> <br>
+
+    <label for="password">Password:</label> <br>
+    <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Enter your password" required> <br>
+
+    <label for="confirm-password">Confirm Password:</label> <br>
+    <input type="password" id="confirm-password" name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="Confirm your password" required> <br>
+
+    <div class="terms">
+      <label for="terms">
+        <input type="checkbox" id="terms" name="terms" required> I agree to the <span>Terms and Conditions</span>
+      </label>
+    </div>
+
+    <p *ngIf="errorMessage" style="color: red; margin-top: 10px;">{{ errorMessage }}</p>
+
+    <button class="submit" type="button" (click)="signUp()">Create Account</button>
+
+    <div class="signup">
+      <p>Already have an account <a class="forgot-password" [routerLink]="['/login']">Sign In</a></p>
+    </div>
+  </form>
+</div>

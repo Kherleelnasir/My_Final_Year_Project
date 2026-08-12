@@ -5,87 +5,114 @@
         <div class="filter-section">
 
             <!-- Search Box -->
-            <input
-                type="text"
-                placeholder="Search case ID, type, location..."
-                class="search-input">
+            <input type="text" placeholder="Search case ID, type, location" class="search-input">
 
             <!-- Status -->
-            <select class="filter-select">
-                <option>Status: All</option>
-                <option>Active</option>
-                <option>Pending</option>
-                <option>Resolved</option>
-                <option>Under Investigation</option>
-            </select>
+            <div class="toolbar">
 
-            <!-- Severity -->
-            <select class="filter-select">
-                <option>Severity: All</option>
-                <option>Critical</option>
-                <option>High</option>
-                <option>Medium</option>
-                <option>Low</option>
-            </select>
+                <button type="button" class="filter-btn" (click)="toggleFilters()" [class.active]="showFilters">
+                    ☰ Filters
+                </button>
+
+                <label>Sort:</label>
+
+                <select class="filter-select">
+                    <option>Date</option>
+                </select>
+
+                <select class="filter-select">
+                    <option>Priority</option>
+                </select>
+
+                <select class="filter-select">
+                    <option>Status</option>
+                </select>
+
+                <select class="filter-select">
+                    <option>Crime</option>
+                </select>
+
+            </div>
+
+            <div class="advanced-filter" *ngIf="showFilters">
+
+                <div class="filter-group">
+                    <label>Crime Type</label>
+                    <select class="filter-select">
+                        <option>All</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Status</label>
+                    <select class="filter-select">
+                        <option>All</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Assigned Investigator</label>
+                    <select class="filter-select">
+                        <option>All</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Date From</label>
+                    <input type="date" class="search-input">
+                </div>
+
+                <div class="filter-group">
+                    <label>Date To</label>
+                    <input type="date" class="search-input">
+                </div>
+
+            </div>
 
         </div>
+            
+            <!-- Incident-Table  -->
         <div class="table-container">
-
-            <table class="incident-table">
-
-                <thead>
-
+            <table class="table table-striped custom-table">
+                <thead class="thead">
                     <tr>
-                        <th>CASE ID</th>
-                        <th>TYPE</th>
-                        <th>LOCATION</th>
-                        <th>DATE/TIME</th>
-                        <th>OFFICER</th>
-                        <th>SEVERITY</th>
-                        <th>STATUS</th>
-                        <th></th>
+                        <th scope="col">CASE ID </th>
+                        <th scope="col">TYPE</th>
+                        <th scope="col">LOCATION</th>
+                        <th scope="col">DATE/TIME</th>
+                        <th scope="col">OFFICER</th>
+                        <th scope="col">SERVERITY</th>
+                        <th scope="col">STATUS</th>
                     </tr>
-
                 </thead>
-
-                <tbody>
-
-                    <tr>
-                        <td>CR-2024-0891</td>
-                        <td>Burglary</td>
-                        <td>1402 Oak Ave, District 3</td>
-                        <td>2026-06-15 09:14</td>
-                        <td>Chen, M.</td>
-                        <td><span class="severity high">● High</span></td>
-                        <td><span class="status active">Active</span></td>
-                        <td>👁</td>
+                <tbody class="tbody">
+                    <tr *ngFor="let record of pagedRecords">
+                        <th scope="row">
+                            <a [routerLink]="['/incident-details', record.caseId]" class="text-decoration-none">{{ record.caseId }}</a>
+                        </th>
+                        <td>{{ record.type }}</td>
+                        <td>{{ record.location }}</td>
+                        <td>{{ record.dateTime }}</td>
+                        <td>{{ record.officer }}</td>
+                        <td>{{ record.severity }}</td>
+                        <td>{{ record.status }}</td>
                     </tr>
-
-                    <tr>
-                        <td>CR-2024-0890</td>
-                        <td>Vehicle Theft</td>
-                        <td>Parking Lot B</td>
-                        <td>2026-06-15 08:02</td>
-                        <td>Torres, R.</td>
-                        <td><span class="severity medium">● Medium</span></td>
-                        <td><span class="status investigation">Under Investigation</span></td>
-                        <td>👁</td>
-                    </tr>
-
-                    <tr>
-                        <td>CR-2024-0889</td>
-                        <td>Assault</td>
-                        <td>700 Block, Main St</td>
-                        <td>2026-06-15 06:30</td>
-                        <td>Williams, D.</td>
-                        <td><span class="severity critical">● Critical</span></td>
-                        <td><span class="status active">Active</span></td>
-                        <td>👁</td>
-                    </tr>
-
                 </tbody>
-
             </table>
+
+            <div class="pagination-controls">
+                <div class="rows-per-page">
+                    <label>Rows per page:</label>
+                    <select (change)="setPageSize($any($event.target).value)" [value]="pageSize">
+                        <option *ngFor="let size of pageSizes" [value]="size">{{ size }}</option>
+                    </select>
+                </div>
+                <div class="pagination">
+                    <button class="page-btn" (click)="previousPage()" [disabled]="currentPage === 1">&laquo;</button>
+                    <button class="page-btn" *ngFor="let page of pages" [class.active]="page === currentPage" (click)="selectPage(page)">{{ page }}</button>
+                    <button class="page-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">&raquo;</button>
+                </div>
+            </div>
 
         </div>
 

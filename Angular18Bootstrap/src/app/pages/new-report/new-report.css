@@ -1,0 +1,402 @@
+/* ===========================
+   PAGE
+=========================== */
+
+.new-report-page {
+    background: #0d1117;
+    min-height: 100vh;
+    padding: 35px;
+    color: #f8fafc;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.page-header {
+    max-width: 900px;
+    margin: auto;
+    margin-bottom: 25px;
+}
+
+.back-link {
+    color: #9ca3af;
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 14px;
+    cursor: pointer;
+}
+
+.back-link:hover {
+    color: #ffffff;
+}
+
+.page-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: white;
+}
+
+.page-header p {
+    color: #9ca3af;
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+/* ===========================
+   ALERT
+=========================== */
+
+.alert-box {
+
+    background: rgba(37,99,235,.08);
+
+    border: 1px solid #2563eb;
+
+    color: #c7d2fe;
+
+    border-radius: 8px;
+
+    padding: 14px 18px;
+
+    font-size: 14px;
+
+    margin-bottom: 24px;
+
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.report-card {
+
+    width: 900px;
+
+    max-width: 100%;
+
+    margin: auto;
+
+    background: #161b22;
+
+    border: 1px solid #30363d;
+
+    border-radius: 8px;
+
+    margin-bottom: 22px;
+
+}
+
+.card-title {
+
+    padding: 14px 18px;
+
+    border-bottom: 1px solid #30363d;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: white;
+
+}
+
+.card-body {
+
+    padding: 18px;
+
+}
+
+/* ===========================
+   FORM
+=========================== */
+
+.form-group{
+
+    margin-bottom:18px;
+
+}
+
+label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:#cbd5e1;
+
+    font-size:13px;
+
+    font-weight:500;
+
+}
+
+.form-control{
+
+    background:#21262d;
+
+    border:1px solid #30363d;
+
+    color:white;
+
+    height:45px;
+
+    border-radius:6px;
+
+    font-size:14px;
+
+}
+
+.form-control::placeholder{
+
+    color:#8b949e;
+
+}
+
+.form-control:focus{
+
+    background:#21262d;
+
+    color:white;
+
+    border-color:#2563eb;
+
+    box-shadow:none;
+
+}
+
+/* ===========================
+   CHECKBOX
+=========================== */
+
+.form-check-input {
+    width: 18px;
+    height: 18px;
+    margin-top: 4px;
+    margin-right: 8px;
+    border: 1px solid #6b7280;
+    background: #0d1117;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    background: #2563eb;
+    border-color: #2563eb;
+}
+
+.form-check-input:checked::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 0px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* ===========================
+   TEXTAREA
+=========================== */
+
+textarea.form-control{
+
+    min-height:110px;
+
+    resize:vertical;
+
+    padding-top:12px;
+
+}
+
+
+
+.upload-box{
+
+    border:2px dashed #3b82f6;
+
+    background:#1b222c;
+
+    border-radius:8px;
+
+    padding:30px;
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+.upload-box:hover{
+
+    border-color:#60a5fa;
+
+    background:#21262d;
+
+}
+
+.upload-icon{
+
+    font-size:45px;
+
+    color:#3b82f6;
+
+    margin-bottom:15px;
+
+}
+
+.upload-box h6{
+
+    color:#fff;
+
+    margin-bottom:8px;
+
+}
+
+.upload-box p{
+
+    color:#9ca3af;
+
+    margin-bottom:15px;
+
+}
+
+.upload-box input{
+
+    margin-bottom: 10px;
+    
+}
+
+
+.upload-box input[type="file"] {
+  background: #1f2937;
+  color: #fff;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.upload-box input[type="file"]::file-selector-button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 13px 16px 13px 16px;
+  margin-right: 15px;
+  margin-top: -12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+
+/* ===========================
+   CHECKBOX
+=========================== */
+
+.form-check-label{
+
+    color:#9ca3af;
+
+    font-size:13px;
+
+}
+
+.form-check-input{
+
+    background:#21262d;
+
+    border:1px solid #4b5563;
+
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.btn-cancel{
+
+    background:#374151;
+
+    color:white;
+
+    border:none;
+
+    width:95px;
+
+    height:42px;
+
+    border-radius:6px;
+
+}
+
+.btn-cancel:hover{
+
+    background:#4b5563;
+
+    color:white;
+
+}
+
+.btn-submit{
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    width:150px;
+
+    height:42px;
+
+    border-radius:6px;
+
+    font-weight:600;
+
+}
+
+.btn-submit:hover{
+
+    background:#1d4ed8;
+
+    color:white;
+
+}
+
+.button-actions {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+.new-report-page{
+
+padding:20px;
+
+}
+
+.report-card{
+
+width:100%;
+
+}
+
+.page-header{
+
+width:100%;
+
+}
+
+}

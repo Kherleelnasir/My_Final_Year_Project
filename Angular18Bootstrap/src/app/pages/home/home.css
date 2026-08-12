@@ -1,0 +1,164 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+header{
+    width:100%;
+    height:80px;
+    background:#0D1117;
+    border-bottom:1px solid #1E293B;
+}
+
+.navbar{
+    width:100%;
+    height:90px;
+    font-size:16px;
+    padding: 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#0D1117;
+}
+
+.logo h2{
+    color:#fff;
+    font-size:28px;
+    font-weight:700;
+}
+
+.logo span{
+    color:#2563EB;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:35px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#d1d5db;
+    font-size:16px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#2563EB;
+}
+
+.nav-buttons{
+    display:flex;
+    gap:15px;
+}
+
+.login-btn,
+.signup-btn{
+    padding:10px 22px;
+    border-radius:8px;
+    font-size:15px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.login-btn{
+    background:transparent;
+    color:#fff;
+    border:2px solid #2563EB;
+}
+
+.login-btn:hover{
+    background:#2563EB;
+}
+
+.signup-btn{
+    background:#2563EB;
+    color:#fff;
+    border:none;
+}
+
+.signup-btn:hover{
+    background:#1d4ed8;
+}
+
+/* ===========================
+   HERO SECTION
+=========================== */
+
+.hero{
+    min-height:calc(100vh - 80px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 8%;
+    background:#0D1117;
+}
+
+.hero-content{
+    max-width:700px;
+    text-align:center;
+}
+
+.badge{
+    display:inline-block;
+    background:#1E293B;
+    color:#60A5FA;
+    padding:10px 20px;
+    border-radius:30px;
+    margin-bottom:25px;
+    font-size:14px;
+}
+
+.hero h1{
+    color:#fff;
+    font-size:60px;
+    line-height:1.2;
+    margin-bottom:25px;
+    font-weight:700;
+}
+
+.hero p{
+    color:#cbd5e1;
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:40px;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.report-btn,
+.track-btn{
+    padding:15px 35px;
+    font-size:16px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.report-btn{
+    background:#2563EB;
+    color:#fff;
+    border:none;
+}
+
+.report-btn:hover{
+    background:#1D4ED8;
+}
+
+.track-btn{
+    background:transparent;
+    color:#fff;
+    border:2px solid #2563EB;
+}
+
+.track-btn:hover{
+    background:#2563EB;
+}
