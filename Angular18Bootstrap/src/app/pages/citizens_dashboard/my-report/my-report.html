@@ -1,1 +1,302 @@
-<p>my-report works!</p>
+<app-citizen-dashboard-layout>
+
+    <div class="case-page">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+
+    <div>
+      <h1>My Cases</h1>
+      <p>Track your reported cases and stay updated on their progress.</p>
+    </div>
+
+    <button class="new-report-btn">
+      + Report New Crime
+    </button>
+
+  </div>
+
+
+  <!-- SEARCH CASE -->
+  <div class="search-card">
+
+    <div class="search-header">
+      <div>
+        <h3>Track a Case</h3>
+        <p>Enter your Case ID to view the latest case information.</p>
+      </div>
+    </div>
+
+    <div class="search-area">
+
+      <div class="search-input">
+        <span>⌕</span>
+
+        <input
+          type="text"
+          placeholder="Enter Case ID e.g. CR-001"
+        />
+      </div>
+
+      <button class="track-btn">
+        Track Case
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- CASE SUMMARY -->
+  <div class="section-title">
+    <h2>My Reported Cases</h2>
+    <span>{{ records.length }} Cases</span>
+  </div>
+
+
+  <div class="case-grid">
+    <div class="case-card" *ngFor="let record of records">
+
+      <div class="case-top">
+
+        <div>
+          <span class="case-id">{{ record.caseId }}</span>
+
+          <h3>{{ record.type }}</h3>
+
+          <p>{{ record.location }}</p>
+        </div>
+
+        <span class="status"
+              [class.active]="record.status === 'Active'"
+              [class.pending]="record.status === 'Pending'"
+              [class.resolved]="record.status === 'Resolved'">
+          {{ record.status }}
+        </span>
+
+      </div>
+
+
+      <div class="case-details">
+
+        <div>
+          <span>Date Reported</span>
+          <strong>{{ record.dateTime }}</strong>
+        </div>
+
+        <div>
+          <span>Last Updated</span>
+          <strong>{{ record.lastUpdated ?? record.dateTime }}</strong>
+        </div>
+
+      </div>
+
+
+      <div class="progress-section">
+
+        <div class="progress-title">
+          <span>Case Progress</span>
+          <strong>{{ record.progress ?? 50 }}%</strong>
+        </div>
+
+        <div class="progress">
+          <div
+            class="progress-fill"
+            [ngClass]="{
+              'active-progress': record.status === 'Active',
+              'pending-progress': record.status === 'Pending',
+              'resolved-progress': record.status === 'Resolved'
+            }"
+            [style.width.%]="record.progress ?? 50">
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="case-footer">
+          <button class="view-btn" [routerLink]="['/citizen-case', record.caseId]">
+            View Case Details →
+          </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- SELECTED CASE -->
+  <div class="case-details-card">
+
+    <div class="details-header">
+
+      <div>
+        <span class="case-id">CASE CR-001</span>
+
+        <h2>Theft / Burglary</h2>
+
+        <p>Reported on 30 Jun 2026</p>
+      </div>
+
+      <span class="status active">
+        Active
+      </span>
+
+    </div>
+
+
+    <!-- INFORMATION -->
+    <div class="information-grid">
+
+      <div class="information-item">
+        <span>Case ID</span>
+        <strong>CR-001</strong>
+      </div>
+
+      <div class="information-item">
+        <span>Crime Type</span>
+        <strong>Theft / Burglary</strong>
+      </div>
+
+      <div class="information-item">
+        <span>Location</span>
+        <strong>Dutse, Jigawa State</strong>
+      </div>
+
+      <div class="information-item">
+        <span>Date Reported</span>
+        <strong>30 Jun 2026</strong>
+      </div>
+
+      <div class="information-item">
+        <span>Assigned Officer</span>
+        <strong>Officer Ibrahim</strong>
+      </div>
+
+      <div class="information-item">
+        <span>Last Updated</span>
+        <strong>02 Jul 2026</strong>
+      </div>
+
+    </div>
+
+
+    <!-- CASE PROGRESS -->
+    <div class="case-progress">
+
+      <div class="progress-title">
+        <div>
+          <h3>Case Progress</h3>
+          <p>Your case is currently under investigation.</p>
+        </div>
+
+        <strong>65%</strong>
+      </div>
+
+
+      <div class="large-progress">
+
+        <div
+          class="large-progress-fill"
+          style="width: 65%;">
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- CASE TIMELINE -->
+    <div class="timeline-section">
+
+      <h3>Case Updates</h3>
+
+      <div class="timeline">
+
+        <div class="timeline-item completed">
+
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+
+            <h4>Report Submitted</h4>
+
+            <p>
+              Your crime report was successfully submitted.
+            </p>
+
+            <span>
+              30 Jun 2026 · 10:25 AM
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="timeline-item completed">
+
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+
+            <h4>Report Reviewed</h4>
+
+            <p>
+              An officer reviewed your report.
+            </p>
+
+            <span>
+              30 Jun 2026 · 03:40 PM
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="timeline-item active-item">
+
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+
+            <h4>Investigation Started</h4>
+
+            <p>
+              Investigation is currently in progress.
+            </p>
+
+            <span>
+              01 Jul 2026 · 09:15 AM
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+
+            <h4>Case Resolution</h4>
+
+            <p>
+              The case will be marked as resolved after investigation.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</app-citizen-dashboard-layout>

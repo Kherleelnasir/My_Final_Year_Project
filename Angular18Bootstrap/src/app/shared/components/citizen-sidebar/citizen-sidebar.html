@@ -1,0 +1,36 @@
+<div class="sidebar">
+
+    <div class="logo">
+        <h2>CrimeTrack</h2>
+        <p>Citizen Portal</p>
+    </div>
+
+    <div class="search-box">
+        <input type="text" placeholder="Search reports...">
+    </div>
+
+    <nav class="menu">
+
+        <a routerLink="/citizens-dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            My Dashboard
+        </a>
+
+        <a routerLink="/new-report" routerLinkActive="active">
+            Report Crime
+        </a>
+
+        <a routerLink="/my-report" routerLinkActive="active">
+            My Reports
+        </a>
+
+        <a routerLink="/profile" routerLinkActive="active">
+            Profile
+        </a>
+
+        <a href="#">
+            logout
+        </a>
+
+    </nav>
+
+</div>

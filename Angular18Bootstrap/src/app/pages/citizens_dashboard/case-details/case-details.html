@@ -1,1 +1,134 @@
-<p>case-details works!</p>
+<div class="tabs">
+
+    <button
+        [class.active]="activeTab === 'timeline'"
+        (click)="setTab('timeline')">
+        Case Timeline
+    </button>
+
+    <button
+        [class.active]="activeTab === 'information'"
+        (click)="setTab('information')">
+        Case Information
+    </button>
+
+    <button
+        [class.active]="activeTab === 'evidence'"
+        (click)="setTab('evidence')">
+        Evidence
+    </button>
+
+    <button
+        [class.active]="activeTab === 'comments'"
+        (click)="setTab('comments')">
+        Comments
+    </button>
+
+</div>
+
+
+<div class="tab-content" *ngIf="activeTab === 'timeline'">
+
+    <div class="timeline-item">
+        <h4>Report Submitted</h4>
+        <p>Crime report was submitted successfully.</p>
+        <span>30 Jun 2026 - 10:25 AM</span>
+    </div>
+
+    <div class="timeline-item">
+        <h4>Case Assigned</h4>
+        <p>Officer assigned to investigate case.</p>
+        <span>30 Jun 2026 - 03:40 PM</span>
+    </div>
+
+    <div class="timeline-item active">
+        <h4>Investigation Ongoing</h4>
+        <p>Evidence collection in progress.</p>
+        <span>01 Jul 2026 - 09:15 AM</span>
+    </div>
+
+</div>
+
+
+<div class="tab-content" *ngIf="activeTab === 'information'">
+
+    <div class="info-grid">
+
+        <div class="info-card">
+            <span>Case ID</span>
+            <strong>CR-001</strong>
+        </div>
+
+        <div class="info-card">
+            <span>Crime Type</span>
+            <strong>Theft / Burglary</strong>
+        </div>
+
+        <div class="info-card">
+            <span>Location</span>
+            <strong>Dutse, Jigawa</strong>
+        </div>
+
+        <div class="info-card">
+            <span>Status</span>
+            <strong>Active</strong>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="tab-content" *ngIf="activeTab === 'evidence'">
+
+    <div class="evidence-grid">
+
+        <div class="evidence-card">
+            <h4>Photo Evidence</h4>
+            <p>theft-scene.jpg</p>
+        </div>
+
+        <div class="evidence-card">
+            <h4>Video Evidence</h4>
+            <p>camera-footage.mp4</p>
+        </div>
+
+        <div class="evidence-card">
+            <h4>Document</h4>
+            <p>witness-statement.pdf</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="tab-content" *ngIf="activeTab === 'comments'">
+
+    <div class="comment">
+
+        <h4>Officer Ibrahim</h4>
+
+        <p>
+            Investigation has started and evidence
+            is currently being reviewed.
+        </p>
+
+        <span>02 Jul 2026</span>
+
+    </div>
+
+    <div class="comment">
+
+        <h4>System Update</h4>
+
+        <p>
+            Case status changed from Pending to Active.
+        </p>
+
+        <span>01 Jul 2026</span>
+
+    </div>
+
+</div>

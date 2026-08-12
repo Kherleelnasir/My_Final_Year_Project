@@ -1,1 +1,350 @@
-<p>dashboard works!</p>
+<app-citizen-dashboard-layout>
+
+  <!-- Dashboard -->
+  <div class="dashboard-container">
+
+    <!-- Header -->
+    <div class="dashboard-header">
+      <div>
+        <h1>Welcome back, Ibrahim</h1>
+        <p>Track your reports and stay updated on your case status.</p>
+      </div>
+
+      <button class="report-btn">
+        <span>+</span>
+        Report New Crime
+      </button>
+    </div>
+
+
+    <!-- Statistics -->
+    <div class="stats-grid">
+
+      <div class="stat-card">
+    
+        <div class="stat-content">
+          <p>Active Cases</p>
+          <h2>247</h2>
+          <small class="positive">↑ 12% <span>from last month</span></small>
+        </div>
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-content">
+          <p>Resolved Cases</p>
+          <h2>89</h2>
+          <small class="positive">↑ 8% <span>from last month</span></small>
+        </div>
+      </div>
+
+
+      <div class="stat-card">
+        
+        <div class="stat-content">
+          <p>Pending Cases</p>
+          <h2>34</h2>
+          <small class="warning">↓ 4% <span>from last month</span></small>
+        </div>
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-content">
+          <p>New Reports</p>
+          <h2>18</h2>
+          <small class="positive">↑ 15% <span>from last month</span></small>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- Main Analytics -->
+    <div class="analytics-grid">
+
+      <!-- Incidents Chart -->
+      <div class="dashboard-card incidents-card">
+
+        <div class="card-header">
+          <div>
+            <h3>Incidents This Week</h3>
+            <p>Number of reported incidents</p>
+          </div>
+
+          <select>
+            <option>This Week</option>
+            <option>This Month</option>
+            <option>This Year</option>
+          </select>
+        </div>
+
+
+        <div class="chart">
+
+          <div class="chart-y">
+            <span>50</span>
+            <span>40</span>
+            <span>30</span>
+            <span>20</span>
+            <span>10</span>
+            <span>0</span>
+          </div>
+
+          <div class="chart-area">
+
+            <div class="grid-line line-1"></div>
+            <div class="grid-line line-2"></div>
+            <div class="grid-line line-3"></div>
+            <div class="grid-line line-4"></div>
+            <div class="grid-line line-5"></div>
+
+            <div class="bars">
+
+              <div class="bar-item">
+                <div class="bar" style="height: 42%;"></div>
+                <span>Mon</span>
+              </div>
+
+              <div class="bar-item">
+                <div class="bar" style="height: 58%;"></div>
+                <span>Tue</span>
+              </div>
+
+              <div class="bar-item">
+                <div class="bar" style="height: 48%;"></div>
+                <span>Wed</span>
+              </div>
+
+              <div class="bar-item">
+                <div class="bar" style="height: 76%;"></div>
+                <span>Thu</span>
+              </div>
+
+              <div class="bar-item">
+                <div class="bar" style="height: 68%;"></div>
+                <span>Fri</span>
+              </div>
+
+              <div class="bar-item">
+                <div class="bar" style="height: 90%;"></div>
+                <span>Sat</span>
+              </div>
+
+              <div class="bar-item">
+                <div class="bar" style="height: 55%;"></div>
+                <span>Sun</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Crime Categories -->
+      <div class="dashboard-card category-card">
+
+        <div class="card-header">
+          <div>
+            <h3>Crime Categories</h3>
+            <p>Reports by category</p>
+          </div>
+        </div>
+
+
+        <div class="category-list">
+
+          <div class="category-item">
+            <div class="category-info">
+              <span>Theft / Burglary</span>
+              <strong>94</strong>
+            </div>
+
+            <div class="progress">
+              <div class="progress-bar blue-bar"
+                   style="width: 82%;"></div>
+            </div>
+          </div>
+
+
+          <div class="category-item">
+            <div class="category-info">
+              <span>Assault</span>
+              <strong>61</strong>
+            </div>
+
+            <div class="progress">
+              <div class="progress-bar red-bar"
+                   style="width: 61%;"></div>
+            </div>
+          </div>
+
+
+          <div class="category-item">
+            <div class="category-info">
+              <span>Vehicle Crime</span>
+              <strong>49</strong>
+            </div>
+
+            <div class="progress">
+              <div class="progress-bar orange-bar"
+                   style="width: 49%;"></div>
+            </div>
+          </div>
+
+
+          <div class="category-item">
+            <div class="category-info">
+              <span>Vandalism</span>
+              <strong>29</strong>
+            </div>
+
+            <div class="progress">
+              <div class="progress-bar purple-bar"
+                   style="width: 29%;"></div>
+            </div>
+          </div>
+
+
+          <div class="category-item">
+            <div class="category-info">
+              <span>Other</span>
+              <strong>14</strong>
+            </div>
+
+            <div class="progress">
+              <div class="progress-bar gray-bar"
+                   style="width: 14%;"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Recent Incidents -->
+    <div class="dashboard-card recent-card">
+
+      <div class="card-header">
+        <div>
+          <h3>Recent Incidents</h3>
+          <p>Latest reported crime cases</p>
+        </div>
+
+        <button class="view-all">
+          View All →
+        </button>
+      </div>
+
+
+      <div class="table-wrapper">
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>CASE ID</th>
+              <th>CRIME TYPE</th>
+              <th>LOCATION</th>
+              <th>DATE</th>
+              <th>STATUS</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>
+                <strong>CR-001</strong>
+              </td>
+
+              <td>Theft</td>
+
+              <td>Dutse</td>
+
+              <td>30 Jun 2026</td>
+
+              <td>
+                <span class="status active">
+                  Active
+                </span>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td>
+                <strong>CR-002</strong>
+              </td>
+
+              <td>Assault</td>
+
+              <td>Kano</td>
+
+              <td>29 Jun 2026</td>
+
+              <td>
+                <span class="status pending">
+                  Pending
+                </span>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td>
+                <strong>CR-003</strong>
+              </td>
+
+              <td>Vehicle Theft</td>
+
+              <td>Abuja</td>
+
+              <td>28 Jun 2026</td>
+
+              <td>
+                <span class="status resolved">
+                  Resolved
+                </span>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td>
+                <strong>CR-004</strong>
+              </td>
+
+              <td>Vandalism</td>
+
+              <td>Dutse</td>
+
+              <td>27 Jun 2026</td>
+
+              <td>
+                <span class="status pending">
+                  Pending
+                </span>
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</app-citizen-dashboard-layout>

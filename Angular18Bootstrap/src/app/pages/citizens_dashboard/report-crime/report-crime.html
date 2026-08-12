@@ -1,1 +1,121 @@
-<p>report-crime works!</p>
+<app-citizen-dashboard-layout>
+
+    <div class="incident-page">
+
+        <div class="filter-section">
+
+            <!-- Search Box -->
+            <input type="text" placeholder="Search case ID, type, location" class="search-input">
+
+            <!-- Status -->
+            <div class="toolbar">
+
+                <button type="button" class="filter-btn" (click)="toggleFilters()" [class.active]="showFilters">
+                    ☰ Filters
+                </button>
+
+                <label>Sort:</label>
+
+                <select class="filter-select">
+                    <option>Date</option>
+                </select>
+
+                <select class="filter-select">
+                    <option>Priority</option>
+                </select>
+
+                <select class="filter-select">
+                    <option>Status</option>
+                </select>
+
+                <select class="filter-select">
+                    <option>Crime</option>
+                </select>
+
+            </div>
+
+            <div class="advanced-filter" *ngIf="showFilters">
+
+                <div class="filter-group">
+                    <label>Crime Type</label>
+                    <select class="filter-select">
+                        <option>All</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Status</label>
+                    <select class="filter-select">
+                        <option>All</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Assigned Investigator</label>
+                    <select class="filter-select">
+                        <option>All</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Date From</label>
+                    <input type="date" class="search-input">
+                </div>
+
+                <div class="filter-group">
+                    <label>Date To</label>
+                    <input type="date" class="search-input">
+                </div>
+
+            </div>
+
+        </div>
+            
+            <!-- Incident-Table  -->
+        <div class="table-container">
+            <table class="table table-striped custom-table">
+                <thead class="thead">
+                    <tr>
+                        <th scope="col">CASE ID </th>
+                        <th scope="col">TYPE</th>
+                        <th scope="col">LOCATION</th>
+                        <th scope="col">DATE/TIME</th>
+                        <th scope="col">OFFICER</th>
+                        <th scope="col">SERVERITY</th>
+                        <th scope="col">STATUS</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+                    <tr *ngFor="let record of pagedRecords">
+                        <th scope="row">
+                            <a [routerLink]="['/incident-details', record.caseId]" class="text-decoration-none">{{ record.caseId }}</a>
+                        </th>
+                        <td>{{ record.type }}</td>
+                        <td>{{ record.location }}</td>
+                        <td>{{ record.dateTime }}</td>
+                        <td>{{ record.officer }}</td>
+                        <td>{{ record.severity }}</td>
+                        <td>{{ record.status }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="pagination-controls">
+                <div class="rows-per-page">
+                    <label>Rows per page:</label>
+                    <select (change)="setPageSize($any($event.target).value)" [value]="pageSize">
+                        <option *ngFor="let size of pageSizes" [value]="size">{{ size }}</option>
+                    </select>
+                </div>
+                <div class="pagination">
+                    <button class="page-btn" (click)="previousPage()" [disabled]="currentPage === 1">&laquo;</button>
+                    <button class="page-btn" *ngFor="let page of pages" [class.active]="page === currentPage" (click)="selectPage(page)">{{ page }}</button>
+                    <button class="page-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">&raquo;</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</app-citizen-dashboard-layout>
