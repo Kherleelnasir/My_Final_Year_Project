@@ -1,4 +1,4 @@
-.users-page {
+.crime-types-page {
   width: 100%;
   min-height: 100%;
   background: #f5f7fb;
@@ -7,9 +7,12 @@
 }
 
 
-/* Header */
+/* HEADER */
 
 .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 25px;
 }
 
@@ -27,18 +30,40 @@
 }
 
 
-/* Toolbar */
+/* ADD BUTTON */
 
-.toolbar {
+.add-btn {
+  border: none;
+  background: #2563eb;
+  color: white;
+  padding: 11px 17px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 7px;
+}
+
+.add-btn:hover {
+  background: #1d4ed8;
+}
+
+.add-btn span {
+  font-size: 16px;
+}
+
+
+/* TOOLBAR */
+
+.toolbar {
   margin-bottom: 20px;
 }
 
 .search-box {
   position: relative;
-  flex: 1;
   max-width: 500px;
 }
 
@@ -47,6 +72,7 @@
   left: 14px;
   top: 50%;
   transform: translateY(-50%);
+
   color: #94a3b8;
   font-size: 18px;
 }
@@ -59,12 +85,12 @@
   border: 1px solid #dbe3ec;
   border-radius: 8px;
 
-  background: #ffffff;
+  background: white;
 
   padding: 0 15px 0 40px;
 
   color: #334155;
-  font-size: 12px;
+  font-size: 11px;
 
   outline: none;
 }
@@ -78,29 +104,9 @@
 }
 
 
-.status-filter {
-  height: 42px;
+/* CARD */
 
-  border: 1px solid #dbe3ec;
-  border-radius: 8px;
-
-  background: #ffffff;
-
-  color: #475569;
-
-  padding: 0 14px;
-
-  font-size: 11px;
-
-  outline: none;
-
-  cursor: pointer;
-}
-
-
-/* Users card */
-
-.users-card {
+.crime-card {
   background: #ffffff;
 
   border: 1px solid #e2e8f0;
@@ -113,13 +119,11 @@
 }
 
 
-/* Table header */
+/* TABLE HEADER */
 
 .table-header {
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
 
   margin-bottom: 20px;
@@ -127,23 +131,18 @@
 
 .table-header h2 {
   margin: 0;
-
   color: #0b132b;
-
   font-size: 16px;
 }
 
 .table-header p {
   margin: 5px 0 0;
-
   color: #94a3b8;
-
   font-size: 11px;
 }
 
-.user-count {
+.crime-count {
   background: #eff6ff;
-
   color: #2563eb;
 
   padding: 6px 11px;
@@ -151,12 +150,11 @@
   border-radius: 20px;
 
   font-size: 10px;
-
   font-weight: 600;
 }
 
 
-/* Table */
+/* TABLE */
 
 .table-container {
   width: 100%;
@@ -165,9 +163,7 @@
 
 table {
   width: 100%;
-
   border-collapse: collapse;
-
   min-width: 900px;
 }
 
@@ -183,7 +179,6 @@ th {
   color: #64748b;
 
   font-size: 10px;
-
   font-weight: 600;
 
   border-bottom: 1px solid #e2e8f0;
@@ -203,56 +198,81 @@ tbody tr:hover {
   background: #f8fafc;
 }
 
-.user-id {
-  color: #2563eb;
 
+/* ID */
+
+.crime-id {
+  color: #2563eb;
   font-weight: 600;
 }
 
 
-/* Citizen */
+/* CRIME NAME */
 
-.citizen {
+.crime-name {
   display: flex;
-
   align-items: center;
-
   gap: 9px;
 
   color: #334155;
-
   font-weight: 600;
 }
 
-.avatar {
+.crime-icon {
   width: 31px;
   height: 31px;
 
-  border-radius: 50%;
+  border-radius: 7px;
 
-  background: #0b132b;
-
-  color: #ffffff;
+  background: #eff6ff;
+  color: #2563eb;
 
   display: flex;
-
   align-items: center;
-
   justify-content: center;
 
-  font-size: 10px;
-
+  font-size: 14px;
   font-weight: 700;
 }
 
 
-/* Status */
+/* DESCRIPTION */
+
+.description {
+  max-width: 350px;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+
+/* CASE COUNT */
+
+.case-count {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 28px;
+  height: 25px;
+
+  border-radius: 6px;
+
+  background: #f1f5f9;
+
+  color: #475569;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+
+/* STATUS */
 
 .status {
   display: inline-flex;
 
   align-items: center;
-
   justify-content: center;
 
   min-width: 58px;
@@ -262,34 +282,29 @@ tbody tr:hover {
   border-radius: 20px;
 
   font-size: 9px;
-
   font-weight: 600;
 }
 
 .status.active {
   background: #ecfdf5;
-
   color: #059669;
 }
 
 .status.inactive {
   background: #f1f5f9;
-
   color: #64748b;
 }
 
 
-/* Actions */
+/* ACTIONS */
 
 .actions {
   display: flex;
-
   align-items: center;
-
   gap: 7px;
 }
 
-.view-btn,
+.edit-btn,
 .status-btn {
   border-radius: 6px;
 
@@ -300,7 +315,7 @@ tbody tr:hover {
   cursor: pointer;
 }
 
-.view-btn {
+.edit-btn {
   border: 1px solid #dbe3ec;
 
   background: #ffffff;
@@ -308,7 +323,7 @@ tbody tr:hover {
   color: #2563eb;
 }
 
-.view-btn:hover {
+.edit-btn:hover {
   background: #eff6ff;
 }
 
@@ -325,39 +340,36 @@ tbody tr:hover {
 }
 
 
-/* No results */
+/* EMPTY */
 
 .no-results {
   text-align: center;
-
   padding: 40px;
 
   color: #94a3b8;
 }
 
 
-/* Responsive */
+/* RESPONSIVE */
 
 @media (max-width: 700px) {
 
-  .users-page {
+  .crime-types-page {
     padding: 20px;
   }
 
-  .toolbar {
+  .page-header {
     flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
 
-    align-items: stretch;
+  .toolbar {
+    width: 100%;
   }
 
   .search-box {
     max-width: none;
-  }
-
-  .table-header {
-    align-items: flex-start;
-
-    gap: 10px;
   }
 
 }

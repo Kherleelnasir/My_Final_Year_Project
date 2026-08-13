@@ -1,134 +1,645 @@
-<div class="tabs">
+<app-dashboard-layout>
 
-    <button
+  <div class="case-page">
+
+    <!-- =========================================
+         PAGE HEADER
+    ========================================== -->
+
+    <div class="page-header">
+
+      <div class="header-left">
+
+        <div class="breadcrumb">
+          My Cases
+          <span>/</span>
+          CR-2026-000145
+        </div>
+
+        <h1>Case Details</h1>
+
+      </div>
+
+      <div class="case-status">
+        <span class="status-dot"></span>
+        Under Investigation
+      </div>
+
+    </div>
+
+
+    <!-- =========================================
+         CASE SUMMARY CARD
+    ========================================== -->
+
+    <div class="case-summary-card">
+
+      <div class="summary-main">
+
+        <span class="case-id">
+          CR-2026-000145
+        </span>
+
+        <h2>
+          Stolen laptop from my car
+        </h2>
+
+        <p class="case-location">
+          Theft / Burglary
+          <span>•</span>
+          Garki, Abuja
+        </p>
+
+      </div>
+
+
+      <div class="summary-details">
+
+        <div class="summary-item">
+
+          <span>Date Reported</span>
+
+          <strong>
+            30 Jun 2026
+          </strong>
+
+        </div>
+
+
+        <div class="summary-item">
+
+          <span>Assigned Officer</span>
+
+          <strong>
+            Officer Ibrahim
+          </strong>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================================
+         TABS
+    ========================================== -->
+
+    <div class="case-tabs">
+
+      <button
+        type="button"
+        class="tab-button"
         [class.active]="activeTab === 'timeline'"
-        (click)="setTab('timeline')">
+        (click)="selectTab('timeline')">
+
         Case Timeline
-    </button>
 
-    <button
+      </button>
+
+
+      <button
+        type="button"
+        class="tab-button"
         [class.active]="activeTab === 'information'"
-        (click)="setTab('information')">
+        (click)="selectTab('information')">
+
         Case Information
-    </button>
 
-    <button
+      </button>
+
+
+      <button
+        type="button"
+        class="tab-button"
         [class.active]="activeTab === 'evidence'"
-        (click)="setTab('evidence')">
+        (click)="selectTab('evidence')">
+
         Evidence
-    </button>
 
-    <button
+      </button>
+
+
+      <button
+        type="button"
+        class="tab-button"
         [class.active]="activeTab === 'comments'"
-        (click)="setTab('comments')">
+        (click)="selectTab('comments')">
+
         Comments
-    </button>
 
-</div>
+      </button>
 
-
-<div class="tab-content" *ngIf="activeTab === 'timeline'">
-
-    <div class="timeline-item">
-        <h4>Report Submitted</h4>
-        <p>Crime report was submitted successfully.</p>
-        <span>30 Jun 2026 - 10:25 AM</span>
     </div>
 
-    <div class="timeline-item">
-        <h4>Case Assigned</h4>
-        <p>Officer assigned to investigate case.</p>
-        <span>30 Jun 2026 - 03:40 PM</span>
-    </div>
 
-    <div class="timeline-item active">
-        <h4>Investigation Ongoing</h4>
-        <p>Evidence collection in progress.</p>
-        <span>01 Jul 2026 - 09:15 AM</span>
-    </div>
+    <!-- =========================================
+         CASE TIMELINE
+    ========================================== -->
 
-</div>
+    @if (activeTab === 'timeline') {
+
+      <div class="content-card timeline-card">
+
+        <h2>Case Timeline</h2>
+
+        <div class="timeline">
+
+          <!-- STEP 1 -->
+
+          <div class="timeline-item completed">
+
+            <div class="timeline-marker">
+              <span>✓</span>
+            </div>
+
+            <div class="timeline-content">
+
+              <div class="timeline-header">
+
+                <div>
+                  <h3>Report Submitted</h3>
+
+                  <p>
+                    Your crime report was successfully submitted.
+                  </p>
+                </div>
+
+                <span class="timeline-date">
+                  30 Jun 2026 · 10:25 AM
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
 
 
-<div class="tab-content" *ngIf="activeTab === 'information'">
+          <!-- STEP 2 -->
 
-    <div class="info-grid">
+          <div class="timeline-item completed">
 
-        <div class="info-card">
+            <div class="timeline-marker">
+              <span>✓</span>
+            </div>
+
+            <div class="timeline-content">
+
+              <div class="timeline-header">
+
+                <div>
+                  <h3>Report Reviewed</h3>
+
+                  <p>
+                    An officer reviewed your report.
+                  </p>
+                </div>
+
+                <span class="timeline-date">
+                  30 Jun 2026 · 03:40 PM
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- STEP 3 -->
+
+          <div class="timeline-item current">
+
+            <div class="timeline-marker">
+              <span></span>
+            </div>
+
+            <div class="timeline-content">
+
+              <div class="timeline-header">
+
+                <div>
+                  <h3>Investigation Started</h3>
+
+                  <p>
+                    Investigation is currently in progress.
+                  </p>
+                </div>
+
+                <span class="timeline-date">
+                  01 Jul 2026 · 09:15 AM
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- STEP 4 -->
+
+          <div class="timeline-item upcoming">
+
+            <div class="timeline-marker">
+              <span></span>
+            </div>
+
+            <div class="timeline-content">
+
+              <div class="timeline-header">
+
+                <div>
+                  <h3>Case Resolution</h3>
+
+                  <p>
+                    The case will be marked as resolved
+                    after the investigation.
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    }
+
+
+    <!-- =========================================
+         CASE INFORMATION
+    ========================================== -->
+
+    @if (activeTab === 'information') {
+
+      <div class="content-card information-card">
+
+        <h2>Case Information</h2>
+
+
+        <!-- INFORMATION GRID -->
+
+        <div class="information-grid">
+
+
+          <div class="information-box">
+
             <span>Case ID</span>
-            <strong>CR-001</strong>
-        </div>
 
-        <div class="info-card">
+            <strong>
+              CR-2026-000145
+            </strong>
+
+          </div>
+
+
+          <div class="information-box">
+
             <span>Crime Type</span>
-            <strong>Theft / Burglary</strong>
-        </div>
 
-        <div class="info-card">
+            <strong>
+              Theft / Burglary
+            </strong>
+
+          </div>
+
+
+          <div class="information-box">
+
             <span>Location</span>
-            <strong>Dutse, Jigawa</strong>
-        </div>
 
-        <div class="info-card">
+            <strong>
+              Garki, Abuja
+            </strong>
+
+          </div>
+
+
+          <div class="information-box">
+
+            <span>Date Reported</span>
+
+            <strong>
+              30 Jun 2026
+            </strong>
+
+          </div>
+
+
+          <div class="information-box">
+
+            <span>Assigned Officer</span>
+
+            <strong>
+              Officer Ibrahim
+            </strong>
+
+          </div>
+
+
+          <div class="information-box">
+
             <span>Status</span>
-            <strong>Active</strong>
+
+            <strong class="blue-text">
+              Under Investigation
+            </strong>
+
+          </div>
+
         </div>
 
-    </div>
 
-</div>
+        <!-- DESCRIPTION -->
 
+        <div class="description-section">
 
-<div class="tab-content" *ngIf="activeTab === 'evidence'">
+          <h3>Description</h3>
 
-    <div class="evidence-grid">
+          <div class="description-box">
 
-        <div class="evidence-card">
-            <h4>Photo Evidence</h4>
-            <p>theft-scene.jpg</p>
+            <p>
+              A laptop was stolen from a parked vehicle.
+              The incident occurred in the evening and
+              supporting evidence was uploaded with the report.
+            </p>
+
+          </div>
+
         </div>
 
-        <div class="evidence-card">
-            <h4>Video Evidence</h4>
-            <p>camera-footage.mp4</p>
+
+        <!-- REPORT DETAILS -->
+
+        <div class="report-details-section">
+
+          <h3>Report Details</h3>
+
+          <div class="information-grid">
+
+
+            <div class="information-box">
+
+              <span>Date of Incident</span>
+
+              <strong>
+                30 Jun 2026
+              </strong>
+
+            </div>
+
+
+            <div class="information-box">
+
+              <span>Time of Incident</span>
+
+              <strong>
+                08:30 PM
+              </strong>
+
+            </div>
+
+
+            <div class="information-box">
+
+              <span>Exact Location</span>
+
+              <strong>
+                Garki Area, Abuja
+              </strong>
+
+            </div>
+
+          </div>
+
         </div>
 
-        <div class="evidence-card">
-            <h4>Document</h4>
-            <p>witness-statement.pdf</p>
+      </div>
+
+    }
+
+
+    <!-- =========================================
+         EVIDENCE
+    ========================================== -->
+
+    @if (activeTab === 'evidence') {
+
+      <div class="content-card evidence-card">
+
+        <div class="section-heading">
+
+          <div>
+
+            <h2>Evidence</h2>
+
+            <p>
+              Evidence submitted with this case.
+            </p>
+
+          </div>
+
+          <span class="evidence-count">
+            2 Files
+          </span>
+
         </div>
 
-    </div>
 
-</div>
-
+        <div class="evidence-grid">
 
 
-<div class="tab-content" *ngIf="activeTab === 'comments'">
+          <!-- EVIDENCE 1 -->
 
-    <div class="comment">
+          <div class="evidence-item">
 
-        <h4>Officer Ibrahim</h4>
+            <div class="evidence-preview">
+              <span>IMAGE</span>
+            </div>
 
-        <p>
-            Investigation has started and evidence
-            is currently being reviewed.
-        </p>
+            <div class="evidence-info">
 
-        <span>02 Jul 2026</span>
+              <h3>
+                Car Photo.jpg
+              </h3>
 
-    </div>
+              <p>
+                Uploaded 30 Jun 2026
+              </p>
 
-    <div class="comment">
+            </div>
 
-        <h4>System Update</h4>
+            <button
+              type="button"
+              class="view-evidence-btn">
 
-        <p>
-            Case status changed from Pending to Active.
-        </p>
+              View
 
-        <span>01 Jul 2026</span>
+            </button>
 
-    </div>
+          </div>
 
-</div>
+
+          <!-- EVIDENCE 2 -->
+
+          <div class="evidence-item">
+
+            <div class="evidence-preview">
+              <span>IMAGE</span>
+            </div>
+
+            <div class="evidence-info">
+
+              <h3>
+                Location Image.jpg
+              </h3>
+
+              <p>
+                Uploaded 30 Jun 2026
+              </p>
+
+            </div>
+
+            <button
+              type="button"
+              class="view-evidence-btn">
+
+              View
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    }
+
+
+    <!-- =========================================
+         COMMENTS
+    ========================================== -->
+
+    @if (activeTab === 'comments') {
+
+      <div class="content-card comments-card">
+
+        <div class="section-heading">
+
+          <div>
+
+            <h2>Comments</h2>
+
+            <p>
+              Communication related to this case.
+            </p>
+
+          </div>
+
+          <span class="comment-count">
+            2 Comments
+          </span>
+
+        </div>
+
+
+        <!-- COMMENT 1 -->
+
+        <div class="comment-item">
+
+          <div class="comment-avatar">
+            OI
+          </div>
+
+          <div class="comment-content">
+
+            <div class="comment-header">
+
+              <strong>
+                Officer Ibrahim
+              </strong>
+
+              <span>
+                01 Jul 2026 · 09:15 AM
+              </span>
+
+            </div>
+
+            <p>
+              Your report has been reviewed and
+              investigation has started.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- COMMENT 2 -->
+
+        <div class="comment-item">
+
+          <div class="comment-avatar citizen">
+            IR
+          </div>
+
+          <div class="comment-content">
+
+            <div class="comment-header">
+
+              <strong>
+                You
+              </strong>
+
+              <span>
+                01 Jul 2026 · 11:40 AM
+              </span>
+
+            </div>
+
+            <p>
+              Thank you. I have uploaded the requested
+              additional evidence.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ADD COMMENT -->
+
+        <div class="comment-input-section">
+
+          <textarea
+            placeholder="Write a comment...">
+          </textarea>
+
+          <div class="comment-actions">
+
+            <button
+              type="button"
+              class="send-comment-btn">
+
+              Send Comment
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    }
+
+  </div>
+
+</app-dashboard-layout>

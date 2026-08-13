@@ -1,1 +1,220 @@
-<p>user works!</p>
+<app-admin-layout>
+
+  <div class="users-page">
+
+    <!-- Header -->
+
+    <div class="page-header">
+
+      <div>
+        <h1>Users</h1>
+
+        <p>
+          Manage registered citizens and their accounts
+        </p>
+      </div>
+
+    </div>
+
+
+    <!-- Search and filter -->
+
+    <div class="toolbar">
+
+      <div class="search-box">
+
+        <span class="search-icon">⌕</span>
+
+        <input
+          type="text"
+          placeholder="Search by name, email or user ID..."
+          [(ngModel)]="searchText"
+        >
+
+      </div>
+
+
+      <select class="status-filter">
+
+        <option value="all">
+          All Status
+        </option>
+
+        <option value="active">
+          Active
+        </option>
+
+        <option value="inactive">
+          Inactive
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <!-- Users table -->
+
+    <div class="users-card">
+
+      <div class="table-header">
+
+        <div>
+          <h2>Citizen List</h2>
+
+          <p>
+            Registered users in the system
+          </p>
+        </div>
+
+        <span class="user-count">
+          {{ filteredUsers.length }} Users
+        </span>
+
+      </div>
+
+
+      <div class="table-container">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>User ID</th>
+
+              <th>Citizen</th>
+
+              <th>Email</th>
+
+              <th>Phone</th>
+
+              <th>Date Joined</th>
+
+              <th>Status</th>
+
+              <th>Action</th>
+
+            </tr>
+
+          </thead>
+
+
+          <tbody>
+
+            @for (user of filteredUsers; track user.id) {
+
+              <tr>
+
+                <td class="user-id">
+                  {{ user.id }}
+                </td>
+
+
+                <td>
+
+                  <div class="citizen">
+
+                    <div class="avatar">
+                      {{ user.name.charAt(0) }}
+                    </div>
+
+                    <span>
+                      {{ user.name }}
+                    </span>
+
+                  </div>
+
+                </td>
+
+
+                <td>
+                  {{ user.email }}
+                </td>
+
+
+                <td>
+                  {{ user.phone }}
+                </td>
+
+
+                <td>
+                  {{ user.dateJoined }}
+                </td>
+
+
+                <td>
+
+                  <span
+                    class="status"
+                    [class.active]="user.status === 'Active'"
+                    [class.inactive]="user.status === 'Inactive'">
+
+                    {{ user.status }}
+
+                  </span>
+
+                </td>
+
+
+                <td>
+
+                  <div class="actions">
+
+                    <button
+                      class="view-btn"
+                      type="button"
+                      (click)="viewUser(user)">
+
+                      View
+
+                    </button>
+
+
+                    <button
+                      class="status-btn"
+                      type="button"
+                      (click)="changeStatus(user)">
+
+                      {{ user.status === 'Active'
+                        ? 'Deactivate'
+                        : 'Activate' }}
+
+                    </button>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+            }
+
+            @if (filteredUsers.length === 0) {
+
+              <tr>
+
+                <td
+                  colspan="7"
+                  class="no-results">
+
+                  No users found.
+
+                </td>
+
+              </tr>
+
+            }
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</app-admin-layout>

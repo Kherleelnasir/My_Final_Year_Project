@@ -1,0 +1,420 @@
+<app-admin-layout>
+
+  <div class="admin-page">
+
+    <!-- =====================================
+         ADMIN HEADER
+    ====================================== -->
+
+    <header class="admin-header">
+
+      <div class="header-title">
+
+        <h1>Admin Dashboard</h1>
+
+        <p>
+          Overview of the crime reporting system
+        </p>
+
+      </div>
+
+
+      <div class="header-actions">
+
+        <!-- Notification -->
+
+        <button
+          class="notification-button"
+          type="button"
+          aria-label="Notifications">
+
+          <span class="notification-icon">🔔</span>
+
+          <span class="notification-badge">
+            4
+          </span>
+
+        </button>
+
+
+        <!-- Admin Profile -->
+
+        <button
+          class="admin-profile"
+          type="button">
+
+          <div class="admin-avatar">
+            A
+          </div>
+
+          <div class="admin-info">
+
+            <strong>Admin</strong>
+
+            <span>Administrator</span>
+
+          </div>
+
+          <span class="dropdown-arrow">
+            ▾
+          </span>
+
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <!-- =====================================
+         STATISTICS
+    ====================================== -->
+
+    <section class="stats-container">
+
+      @for (stat of stats; track stat.label) {
+
+        <div class="stat-card">
+
+          <div class="stat-card-top">
+
+            <div class="stat-icon">
+              <span>▣</span>
+            </div>
+
+          </div>
+
+          <h2>
+            {{ stat.value }}
+          </h2>
+
+          <h3>
+            {{ stat.label }}
+          </h3>
+
+          <p>
+            {{ stat.description }}
+          </p>
+
+        </div>
+
+      }
+
+    </section>
+
+
+    <!-- =====================================
+         DASHBOARD GRID
+    ====================================== -->
+
+    <section class="dashboard-grid">
+
+
+      <!-- =================================
+           CASES OVERVIEW
+      ================================== -->
+
+      <div class="dashboard-card cases-card">
+
+        <div class="card-header">
+
+          <div>
+
+            <h2>Cases Overview</h2>
+
+            <p>
+              Reported cases during the week
+            </p>
+
+          </div>
+
+
+          <select
+            class="period-select"
+            (change)="selectPeriod($any($event.target).value)">
+
+            <option value="week">
+              This Week
+            </option>
+
+            <option value="month">
+              This Month
+            </option>
+
+            <option value="year">
+              This Year
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <!-- CHART -->
+
+        <div class="chart-container">
+
+          <div class="chart-y-axis">
+
+            <span>50</span>
+            <span>40</span>
+            <span>30</span>
+            <span>20</span>
+            <span>10</span>
+            <span>0</span>
+
+          </div>
+
+
+          <div class="chart-area">
+
+            <div class="grid-line line-1"></div>
+            <div class="grid-line line-2"></div>
+            <div class="grid-line line-3"></div>
+            <div class="grid-line line-4"></div>
+            <div class="grid-line line-5"></div>
+
+
+            <div class="bars">
+
+              <div class="bar-column">
+
+                <div class="bar" style="height: 65%;"></div>
+
+                <span>Mon</span>
+
+              </div>
+
+
+              <div class="bar-column">
+
+                <div class="bar" style="height: 82%;"></div>
+
+                <span>Tue</span>
+
+              </div>
+
+
+              <div class="bar-column">
+
+                <div class="bar" style="height: 58%;"></div>
+
+                <span>Wed</span>
+
+              </div>
+
+
+              <div class="bar-column">
+
+                <div class="bar" style="height: 91%;"></div>
+
+                <span>Thu</span>
+
+              </div>
+
+
+              <div class="bar-column">
+
+                <div class="bar" style="height: 73%;"></div>
+
+                <span>Fri</span>
+
+              </div>
+
+
+              <div class="bar-column">
+
+                <div class="bar" style="height: 48%;"></div>
+
+                <span>Sat</span>
+
+              </div>
+
+
+              <div class="bar-column">
+
+                <div class="bar" style="height: 62%;"></div>
+
+                <span>Sun</span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================
+           CRIME CATEGORIES
+      ================================== -->
+
+      <div class="dashboard-card categories-card">
+
+        <div class="card-header">
+
+          <div>
+
+            <h2>Crime Categories</h2>
+
+            <p>
+              Cases by crime type
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="categories-list">
+
+          @for (category of crimeCategories; track category.name) {
+
+            <div class="category-item">
+
+              <div class="category-info">
+
+                <span>
+                  {{ category.name }}
+                </span>
+
+                <strong>
+                  {{ category.percentage }}%
+                </strong>
+
+              </div>
+
+
+              <div class="progress-bar">
+
+                <div
+                  class="progress-fill"
+                  [style.width.%]="category.percentage">
+                </div>
+
+              </div>
+
+            </div>
+
+          }
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         RECENT CASES
+    ====================================== -->
+
+    <section class="recent-cases-card">
+
+      <div class="card-header">
+
+        <div>
+
+          <h2>Recent Cases</h2>
+
+          <p>
+            Latest crime reports submitted to the system
+          </p>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="view-all-button">
+
+          View All
+
+        </button>
+
+      </div>
+
+
+      <div class="table-container">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>Case ID</th>
+
+              <th>Crime Type</th>
+
+              <th>Location</th>
+
+              <th>Assigned Officer</th>
+
+              <th>Date</th>
+
+              <th>Status</th>
+
+            </tr>
+
+          </thead>
+
+
+          <tbody>
+
+            @for (caseItem of recentCases; track caseItem.id) {
+
+              <tr>
+
+                <td class="case-id">
+                  {{ caseItem.id }}
+                </td>
+
+                <td>
+                  {{ caseItem.crime }}
+                </td>
+
+                <td>
+                  {{ caseItem.location }}
+                </td>
+
+                <td>
+                  {{ caseItem.officer }}
+                </td>
+
+                <td>
+                  {{ caseItem.date }}
+                </td>
+
+                <td>
+
+                  <span
+                    class="status"
+                    [class.active]="caseItem.status === 'Active'"
+                    [class.pending]="caseItem.status === 'Pending'"
+                    [class.resolved]="caseItem.status === 'Resolved'">
+
+                    {{ caseItem.status }}
+
+                  </span>
+
+                </td>
+
+              </tr>
+
+            }
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</app-admin-layout>

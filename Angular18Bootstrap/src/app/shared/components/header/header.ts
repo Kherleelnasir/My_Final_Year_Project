@@ -6,6 +6,7 @@ import { HeaderService } from '../../services/header.service';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
   imports: [RouterLink, NgIf],
   templateUrl: './header.html',
   styleUrl: './header.css',

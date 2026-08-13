@@ -1,0 +1,215 @@
+<app-admin-layout>
+
+  <div class="crime-types-page">
+
+    <!-- HEADER -->
+
+    <div class="page-header">
+
+      <div>
+
+        <h1>Crime Types</h1>
+
+        <p>
+          Manage the types of crimes available in the reporting system
+        </p>
+
+      </div>
+
+      <button
+        class="add-btn"
+        type="button"
+        (click)="addCrimeType()">
+
+        <span>+</span>
+        Add Crime Type
+
+      </button>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="toolbar">
+
+      <div class="search-box">
+
+        <span class="search-icon">⌕</span>
+
+        <input
+          type="text"
+          placeholder="Search crime type..."
+          [(ngModel)]="searchText"
+        >
+
+      </div>
+
+    </div>
+
+
+    <!-- CRIME TYPES CARD -->
+
+    <div class="crime-card">
+
+      <div class="table-header">
+
+        <div>
+
+          <h2>Crime Categories</h2>
+
+          <p>
+            Crime types currently configured in the system
+          </p>
+
+        </div>
+
+        <span class="crime-count">
+          {{ filteredCrimeTypes.length }} Types
+        </span>
+
+      </div>
+
+
+      <div class="table-container">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>ID</th>
+
+              <th>Crime Type</th>
+
+              <th>Description</th>
+
+              <th>Total Cases</th>
+
+              <th>Status</th>
+
+              <th>Actions</th>
+
+            </tr>
+
+          </thead>
+
+
+          <tbody>
+
+            @for (crime of filteredCrimeTypes; track crime.id) {
+
+              <tr>
+
+                <td class="crime-id">
+                  {{ crime.id }}
+                </td>
+
+
+                <td>
+
+                  <div class="crime-name">
+
+                    <div class="crime-icon">
+                      #
+                    </div>
+
+                    <span>
+                      {{ crime.name }}
+                    </span>
+
+                  </div>
+
+                </td>
+
+
+                <td class="description">
+                  {{ crime.description }}
+                </td>
+
+
+                <td>
+
+                  <span class="case-count">
+                    {{ crime.cases }}
+                  </span>
+
+                </td>
+
+
+                <td>
+
+                  <span
+                    class="status"
+                    [class.active]="crime.status === 'Active'"
+                    [class.inactive]="crime.status === 'Inactive'">
+
+                    {{ crime.status }}
+
+                  </span>
+
+                </td>
+
+
+                <td>
+
+                  <div class="actions">
+
+                    <button
+                      class="edit-btn"
+                      type="button"
+                      (click)="editCrimeType(crime)">
+
+                      Edit
+
+                    </button>
+
+
+                    <button
+                      class="status-btn"
+                      type="button"
+                      (click)="changeStatus(crime)">
+
+                      {{ crime.status === 'Active'
+                        ? 'Deactivate'
+                        : 'Activate' }}
+
+                    </button>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+            }
+
+
+            @if (filteredCrimeTypes.length === 0) {
+
+              <tr>
+
+                <td
+                  colspan="6"
+                  class="no-results">
+
+                  No crime types found.
+
+                </td>
+
+              </tr>
+
+            }
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</app-admin-layout>

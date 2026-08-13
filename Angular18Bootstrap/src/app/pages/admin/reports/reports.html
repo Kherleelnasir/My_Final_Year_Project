@@ -1,1 +1,303 @@
-<p>reports works!</p>
+<app-admin-layout>
+
+  <div class="reports-page">
+
+    <!-- HEADER -->
+
+    <div class="page-header">
+
+      <div>
+
+        <h1>Reports</h1>
+
+        <p>
+          Review and manage crime reports submitted by citizens
+        </p>
+
+      </div>
+
+      <div class="report-summary">
+
+        <div>
+          <strong>{{ reports.length }}</strong>
+          <span>Total Reports</span>
+        </div>
+
+        <div>
+          <strong>{{ filteredReports.length }}</strong>
+          <span>Showing</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- FILTERS -->
+
+    <div class="toolbar">
+
+      <div class="search-box">
+
+        <span class="search-icon">⌕</span>
+
+        <input
+          type="text"
+          placeholder="Search report, case, crime type or reporter..."
+          [(ngModel)]="searchText"
+        >
+
+      </div>
+
+
+      <select
+        class="filter"
+        [(ngModel)]="selectedStatus">
+
+        <option value="All">
+          All Status
+        </option>
+
+        <option value="Pending">
+          Pending
+        </option>
+
+        <option value="Verified">
+          Verified
+        </option>
+
+        <option value="Rejected">
+          Rejected
+        </option>
+
+      </select>
+
+
+      <select
+        class="filter"
+        [(ngModel)]="selectedType">
+
+        <option value="All">
+          All Crime Types
+        </option>
+
+        <option value="Theft">
+          Theft
+        </option>
+
+        <option value="Assault">
+          Assault
+        </option>
+
+        <option value="Vehicle Theft">
+          Vehicle Theft
+        </option>
+
+        <option value="Robbery">
+          Robbery
+        </option>
+
+        <option value="Burglary">
+          Burglary
+        </option>
+
+        <option value="Cybercrime">
+          Cybercrime
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <!-- REPORT CARD -->
+
+    <div class="reports-card">
+
+      <div class="table-header">
+
+        <div>
+
+          <h2>Submitted Reports</h2>
+
+          <p>
+            Review citizen and anonymous crime reports
+          </p>
+
+        </div>
+
+        <span class="report-count">
+          {{ filteredReports.length }} Reports
+        </span>
+
+      </div>
+
+
+      <div class="table-container">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>Report ID</th>
+
+              <th>Case ID</th>
+
+              <th>Crime Type</th>
+
+              <th>Reporter</th>
+
+              <th>Location</th>
+
+              <th>Date</th>
+
+              <th>Status</th>
+
+              <th>Actions</th>
+
+            </tr>
+
+          </thead>
+
+
+          <tbody>
+
+            @for (report of filteredReports; track report.id) {
+
+              <tr>
+
+                <td class="report-id">
+                  {{ report.id }}
+                </td>
+
+
+                <td class="case-id">
+                  {{ report.caseId }}
+                </td>
+
+
+                <td class="crime-type">
+                  {{ report.crimeType }}
+                </td>
+
+
+                <td>
+
+                  <div class="reporter">
+
+                    <div class="avatar">
+
+                      {{ report.anonymous
+                        ? '?'
+                        : report.reporter.charAt(0) }}
+
+                    </div>
+
+                    <span>
+                      {{ report.reporter }}
+                    </span>
+
+                  </div>
+
+                </td>
+
+
+                <td>
+                  {{ report.location }}
+                </td>
+
+
+                <td>
+                  {{ report.date }}
+                </td>
+
+
+                <td>
+
+                  <span
+                    class="status"
+                    [class.pending]="report.status === 'Pending'"
+                    [class.verified]="report.status === 'Verified'"
+                    [class.rejected]="report.status === 'Rejected'">
+
+                    {{ report.status }}
+
+                  </span>
+
+                </td>
+
+
+                <td>
+
+                  <div class="actions">
+
+                    <button
+                      class="view-btn"
+                      type="button"
+                      (click)="viewReport(report)">
+
+                      View
+
+                    </button>
+
+
+                    @if (report.status === 'Pending') {
+
+                      <button
+                        class="verify-btn"
+                        type="button"
+                        (click)="verifyReport(report)">
+
+                        Verify
+
+                      </button>
+
+                      <button
+                        class="reject-btn"
+                        type="button"
+                        (click)="rejectReport(report)">
+
+                        Reject
+
+                      </button>
+
+                    }
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+            }
+
+
+            @if (filteredReports.length === 0) {
+
+              <tr>
+
+                <td
+                  colspan="8"
+                  class="no-results">
+
+                  No reports found.
+
+                </td>
+
+              </tr>
+
+            }
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</app-admin-layout>

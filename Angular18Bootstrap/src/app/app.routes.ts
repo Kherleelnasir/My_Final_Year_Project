@@ -15,6 +15,17 @@ import { Profile } from './pages/citizens_dashboard/profile/profile';
 import { CaseDetails as CitizenCaseDetails } from './pages/citizens_dashboard/case-details/case-details';
 
 
+
+
+
+import { Users } from './pages/admin/user/user';
+import { Officers } from './pages/admin/officer/officer';
+import { CrimeTypes } from './pages/admin/crime-type/crime-type';
+import { Cases } from './pages/admin/cases/cases';
+import { Reports } from './pages/admin/reports/reports';
+import { Logs } from './pages/admin/logs/logs';
+
+
 export const routes: Routes = [
 
   // Default page
@@ -34,14 +45,49 @@ export const routes: Routes = [
 
   // Officer/Admin Dashboard
   {
-    path: 'dashboard',
+    path: 'admin-dashboard',
     component: Dashboard
   },
 
 
+  // Admin Users
+   {
+     path: 'admin/user',
+     component: Users
+   },
+
+
+  // Admin Officer
   {
-    path: 'web',
-    component: Dashboard
+    path: 'admin/officer',
+    component: Officers
+  },
+
+
+  // Admin Crime Types
+  {
+    path: 'admin/crime-type',
+    component: CrimeTypes
+  },
+
+  // Admin Cases
+  {
+    path: 'admin/cases',
+    component: Cases
+  },
+
+
+    // Admin Reports
+
+   {
+    path: 'admin/reports',
+    component: Reports
+  },
+
+
+  {
+    path: 'admin/logs',
+    component: Logs
   },
 
 
@@ -105,3 +151,4 @@ export const routes: Routes = [
   }
 
 ];
+

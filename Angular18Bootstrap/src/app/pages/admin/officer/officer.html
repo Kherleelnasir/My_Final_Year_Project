@@ -1,1 +1,266 @@
-<p>officer works!</p>
+<app-admin-layout>
+
+  <div class="officers-page">
+
+    <!-- HEADER -->
+
+    <div class="page-header">
+
+      <div>
+
+        <h1>Officers</h1>
+
+        <p>
+          Manage law enforcement officers and their assigned cases
+        </p>
+
+      </div>
+
+      <button
+        class="add-officer-btn"
+        type="button"
+        (click)="addOfficer()">
+
+        <span> + </span>
+        Add Officer
+
+      </button>
+
+    </div>
+
+
+    <!-- TOOLBAR -->
+
+    <div class="toolbar">
+
+      <div class="search-box">
+
+        <span class="search-icon">⌕</span>
+
+        <input
+          type="text"
+          placeholder="Search officer by name, ID, email or department..."
+          [(ngModel)]="searchText"
+        >
+
+      </div>
+
+
+      <select class="department-filter">
+
+        <option value="all">
+          All Departments
+        </option>
+
+        <option value="investigation">
+          Investigation
+        </option>
+
+        <option value="criminal">
+          Criminal Investigation
+        </option>
+
+        <option value="cybercrime">
+          Cybercrime
+        </option>
+
+        <option value="patrol">
+          Patrol
+        </option>
+
+      </select>
+
+
+      <select class="status-filter">
+
+        <option value="all">
+          All Status
+        </option>
+
+        <option value="active">
+          Active
+        </option>
+
+        <option value="inactive">
+          Inactive
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <!-- OFFICERS CARD -->
+
+    <div class="officers-card">
+
+      <div class="table-header">
+
+        <div>
+
+          <h2>Officer List</h2>
+
+          <p>
+            Registered officers in the system
+          </p>
+
+        </div>
+
+        <span class="officer-count">
+          {{ filteredOfficers.length }} Officers
+        </span>
+
+      </div>
+
+
+      <!-- TABLE -->
+
+      <div class="table-container">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>Officer ID</th>
+
+              <th>Officer</th>
+
+              <th>Email</th>
+
+              <th>Department</th>
+
+              <th>Assigned Cases</th>
+
+              <th>Status</th>
+
+              <th>Action</th>
+
+            </tr>
+
+          </thead>
+
+
+          <tbody>
+
+            @for (officer of filteredOfficers; track officer.id) {
+
+              <tr>
+
+                <td class="officer-id">
+                  {{ officer.id }}
+                </td>
+
+
+                <td>
+
+                  <div class="officer">
+
+                    <div class="avatar">
+                      {{ officer.name.charAt(0) }}
+                    </div>
+
+                    <span>
+                      {{ officer.name }}
+                    </span>
+
+                  </div>
+
+                </td>
+
+
+                <td>
+                  {{ officer.email }}
+                </td>
+
+
+                <td>
+                  {{ officer.department }}
+                </td>
+
+
+                <td>
+
+                  <span class="case-count">
+                    {{ officer.assignedCases }}
+                  </span>
+
+                </td>
+
+
+                <td>
+
+                  <span
+                    class="status"
+                    [class.active]="officer.status === 'Active'"
+                    [class.inactive]="officer.status === 'Inactive'">
+
+                    {{ officer.status }}
+
+                  </span>
+
+                </td>
+
+
+                <td>
+
+                  <div class="actions">
+
+                    <button
+                      class="view-btn"
+                      type="button"
+                      (click)="viewOfficer(officer)">
+
+                      View
+
+                    </button>
+
+
+                    <button
+                      class="status-btn"
+                      type="button"
+                      (click)="changeStatus(officer)">
+
+                      {{ officer.status === 'Active'
+                        ? 'Deactivate'
+                        : 'Activate' }}
+
+                    </button>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+            }
+
+
+            @if (filteredOfficers.length === 0) {
+
+              <tr>
+
+                <td
+                  colspan="7"
+                  class="no-results">
+
+                  No officers found.
+
+                </td>
+
+              </tr>
+
+            }
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</app-admin-layout>

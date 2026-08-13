@@ -37,22 +37,3 @@
     margin-right: 0;
 }
 
-.header-action-btn,
-.new-report-btn{
-    background: #2563eb;
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.header-action-btn {
-    background: #1d4ed8;
-    margin-right: -230px;
-    margin-left: 247px;
-}
-
-.new-report-btn {
-    margin-left: 0;
-}

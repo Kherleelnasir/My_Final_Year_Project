@@ -1,1 +1,292 @@
-<p>cases works!</p>
+<app-admin-layout>
+
+  <div class="cases-page">
+
+    <!-- HEADER -->
+
+    <div class="page-header">
+
+      <div>
+
+        <h1>Cases</h1>
+
+        <p>
+          Manage reported crimes, case status and assigned officers
+        </p>
+
+      </div>
+
+      <div class="case-summary">
+
+        <div>
+          <strong>{{ cases.length }}</strong>
+          <span>Total Cases</span>
+        </div>
+
+        <div>
+          <strong>
+            {{ filteredCases.length }}
+          </strong>
+          <span>Showing</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- FILTERS -->
+
+    <div class="toolbar">
+
+      <div class="search-box">
+
+        <span class="search-icon">⌕</span>
+
+        <input
+          type="text"
+          placeholder="Search case ID, crime type, location or officer..."
+          [(ngModel)]="searchText"
+        >
+
+      </div>
+
+
+      <select
+        class="filter"
+        [(ngModel)]="selectedStatus">
+
+        <option value="All">
+          All Status
+        </option>
+
+        <option value="Active">
+          Active
+        </option>
+
+        <option value="Pending">
+          Pending
+        </option>
+
+        <option value="Resolved">
+          Resolved
+        </option>
+
+      </select>
+
+
+      <select
+        class="filter"
+        [(ngModel)]="selectedOfficer">
+
+        <option value="All">
+          All Officers
+        </option>
+
+        @for (officer of officers; track officer) {
+
+          <option [value]="officer">
+            {{ officer }}
+          </option>
+
+        }
+
+      </select>
+
+    </div>
+
+
+    <!-- CASE TABLE -->
+
+    <div class="cases-card">
+
+      <div class="table-header">
+
+        <div>
+
+          <h2>All Cases</h2>
+
+          <p>
+            View and manage all reported crime cases
+          </p>
+
+        </div>
+
+        <span class="case-count">
+          {{ filteredCases.length }} Cases
+        </span>
+
+      </div>
+
+
+      <div class="table-container">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>Case ID</th>
+
+              <th>Crime Type</th>
+
+              <th>Location</th>
+
+              <th>Date</th>
+
+              <th>Status</th>
+
+              <th>Assigned Officer</th>
+
+              <th>Actions</th>
+
+            </tr>
+
+          </thead>
+
+
+          <tbody>
+
+            @for (caseItem of filteredCases; track caseItem.id) {
+
+              <tr>
+
+                <td class="case-id">
+                  {{ caseItem.id }}
+                </td>
+
+
+                <td>
+
+                  <span class="crime-type">
+                    {{ caseItem.crimeType }}
+                  </span>
+
+                </td>
+
+
+                <td>
+                  {{ caseItem.location }}
+                </td>
+
+
+                <td>
+                  {{ caseItem.date }}
+                </td>
+
+
+                <td>
+
+                  <span
+                    class="status"
+                    [class.active]="caseItem.status === 'Active'"
+                    [class.pending]="caseItem.status === 'Pending'"
+                    [class.resolved]="caseItem.status === 'Resolved'">
+
+                    {{ caseItem.status }}
+
+                  </span>
+
+                </td>
+
+
+                <td>
+
+                  @if (caseItem.officer === 'Not Assigned') {
+
+                    <span class="not-assigned">
+                      Not Assigned
+                    </span>
+
+                  } @else {
+
+                    <div class="officer-name">
+
+                      <div class="officer-avatar">
+                        {{ caseItem.officer.charAt(0) }}
+                      </div>
+
+                      {{ caseItem.officer }}
+
+                    </div>
+
+                  }
+
+                </td>
+
+
+                <td>
+
+                  <div class="actions">
+
+                    <button
+                      class="view-btn"
+                      type="button"
+                      (click)="viewCase(caseItem)">
+
+                      View
+
+                    </button>
+
+
+                    @if (caseItem.officer === 'Not Assigned') {
+
+                      <button
+                        class="assign-btn"
+                        type="button"
+                        (click)="assignOfficer(caseItem)">
+
+                        Assign
+
+                      </button>
+
+                    } @else {
+
+                      <button
+                        class="reassign-btn"
+                        type="button"
+                        (click)="reassignOfficer(caseItem)">
+
+                        Reassign
+
+                      </button>
+
+                    }
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+            }
+
+
+            @if (filteredCases.length === 0) {
+
+              <tr>
+
+                <td
+                  colspan="7"
+                  class="no-results">
+
+                  No cases found.
+
+                </td>
+
+              </tr>
+
+            }
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</app-admin-layout>

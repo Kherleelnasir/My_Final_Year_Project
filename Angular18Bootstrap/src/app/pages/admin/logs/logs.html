@@ -1,1 +1,240 @@
-<p>logs works!</p>
+<app-admin-layout>
+
+  <div class="logs-page">
+
+    <!-- HEADER -->
+
+    <div class="page-header">
+
+      <div>
+
+        <h1>System Logs</h1>
+
+        <p>
+          Monitor administrative activities and changes made in the system
+        </p>
+
+      </div>
+
+      <div class="log-summary">
+
+        <div>
+
+          <strong>{{ logs.length }}</strong>
+
+          <span>Total Activities</span>
+
+        </div>
+
+        <div>
+
+          <strong>{{ filteredLogs.length }}</strong>
+
+          <span>Showing</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- FILTERS -->
+
+    <div class="toolbar">
+
+      <div class="search-box">
+
+        <span class="search-icon">⌕</span>
+
+        <input
+          type="text"
+          placeholder="Search logs..."
+          [(ngModel)]="searchText"
+        >
+
+      </div>
+
+
+      <select
+        class="filter"
+        [(ngModel)]="selectedActivity">
+
+        <option value="All">
+          All Activities
+        </option>
+
+        <option value="Login">
+          Login
+        </option>
+
+        <option value="Case Update">
+          Case Updates
+        </option>
+
+        <option value="Officer Assignment">
+          Officer Assignments
+        </option>
+
+        <option value="Report Update">
+          Report Updates
+        </option>
+
+        <option value="Crime Type">
+          Crime Type Changes
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <!-- LOG CARD -->
+
+    <div class="logs-card">
+
+      <div class="table-header">
+
+        <div>
+
+          <h2>Activity Logs</h2>
+
+          <p>
+            Record of activities performed by administrators
+          </p>
+
+        </div>
+
+        <span class="log-count">
+          {{ filteredLogs.length }} Activities
+        </span>
+
+      </div>
+
+
+      <!-- TABLE -->
+
+      <div class="table-container">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>Log ID</th>
+
+              <th>User</th>
+
+              <th>Activity</th>
+
+              <th>Description</th>
+
+              <th>Date</th>
+
+              <th>Time</th>
+
+            </tr>
+
+          </thead>
+
+
+          <tbody>
+
+            @for (log of filteredLogs; track log.id) {
+
+              <tr>
+
+                <td class="log-id">
+                  {{ log.id }}
+                </td>
+
+
+                <td>
+
+                  <div class="user">
+
+                    <div class="avatar">
+                      {{ log.user.charAt(0) }}
+                    </div>
+
+                    <div>
+
+                      <strong>
+                        {{ log.user }}
+                      </strong>
+
+                      <small>
+                        {{ log.role }}
+                      </small>
+
+                    </div>
+
+                  </div>
+
+                </td>
+
+
+                <td>
+
+                  <span
+                    class="activity"
+                    [class.login]="log.activity === 'Login'"
+                    [class.case-update]="log.activity === 'Case Update'"
+                    [class.assignment]="log.activity === 'Officer Assignment'"
+                    [class.report-update]="log.activity === 'Report Update'"
+                    [class.crime-type]="log.activity === 'Crime Type'">
+
+                    {{ log.activity }}
+
+                  </span>
+
+                </td>
+
+
+                <td class="description">
+                  {{ log.description }}
+                </td>
+
+
+                <td>
+                  {{ log.date }}
+                </td>
+
+
+                <td>
+                  {{ log.time }}
+                </td>
+
+              </tr>
+
+            }
+
+
+            @if (filteredLogs.length === 0) {
+
+              <tr>
+
+                <td
+                  colspan="6"
+                  class="no-results">
+
+                  No activity logs found.
+
+                </td>
+
+              </tr>
+
+            }
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</app-admin-layout>
